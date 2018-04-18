@@ -15,14 +15,14 @@ for /f "delims=" %%A in ('%ADB% %DEVICE% shell "echo $EXTERNAL_STORAGE"') do @se
 %ADB% %DEVICE% shell rm -r %STORAGE%/UE4Game/TraficController
 %ADB% %DEVICE% shell rm -r %STORAGE%/UE4Game/UE4CommandLine.txt
 %ADB% %DEVICE% shell rm -r %STORAGE%/obb/com.YourCompany.TraficController
+
+
+
+
 @echo.
-@echo Installing new data. Failures here indicate storage problems (missing SD card or bad permissions) and are fatal.
-%ADB% %DEVICE% push main.1.com.YourCompany.TraficController.obb %STORAGE%/obb/com.YourCompany.TraficController/main.1.com.YourCompany.TraficController.obb
-if "%ERRORLEVEL%" NEQ "0" goto Error
-@echo.
-@echo Grant READ_EXTERNAL_STORAGE and WRITE_EXTERNAL_STORAGE to the apk for reading OBB file.
-%ADB% %DEVICE% shell pm grant com.YourCompany.TraficController android.permission.READ_EXTERNAL_STORAGE
-%ADB% %DEVICE% shell pm grant com.YourCompany.TraficController android.permission.WRITE_EXTERNAL_STORAGE
+
+
+
 @echo.
 @echo Installation successful
 goto:eof
